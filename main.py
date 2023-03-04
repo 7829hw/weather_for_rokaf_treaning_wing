@@ -9,8 +9,8 @@ def parse_naver_weather(elements):  # 네이버날씨를 파싱하여 오전/오
         inners = e.findAll("span", {"class": "weather_inner"})
         rainAM = inners[0].find("span", {"class": "rainfall"}).text
         rainPM = inners[1].find("span", {"class": "rainfall"}).text
-        tempAM = e.find("span", {"class": "lowest"}).find(text=True, recursive=False)
-        tempPM = e.find("span", {"class": "highest"}).find(text=True, recursive=False)
+        tempAM = e.find("span", {"class": "lowest"}).find(string=True, recursive=False)
+        tempPM = e.find("span", {"class": "highest"}).find(string=True, recursive=False)
         foo = "%9s" % tempAM + "%9s" % rainAM + "%9s" % tempPM + "%9s" % rainPM
         data.append(foo)
     return data
